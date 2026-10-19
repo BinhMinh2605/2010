@@ -1,0 +1,70 @@
+:root {
+  --black: #0a0508;
+  --pink: #ff4f9a;
+  --pink-soft: #ffb3d1;
+  --pink-deep: #c2185b;
+  --rose: #e0357f;
+  --gold: #f6d6a8;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: radial-gradient(ellipse at 50% 35%, #3a0f26 0, #150811 45%, var(--black) 80%);
+  color: #fff;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+.sparkles,
+.sparkles::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+.sparkles {
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #ffb3d1 50%, transparent),
+    radial-gradient(1.5px 1.5px at 90px 120px, #fff 50%, transparent),
+    radial-gradient(2px 2px at 160px 60px, #ff4f9a 50%, transparent);
+  background-size: 200px 180px;
+  opacity: 0.55;
+  animation: twinkle 4s ease-in-out infinite;
+}
+.sparkles::before {
+  background-image:
+    radial-gradient(1.5px 1.5px at 50px 90px, #ffb3d1 50%, transparent),
+    radial-gradient(2px 2px at 140px 20px, #fff 50%, transparent);
+  background-size: 260px 230px;
+  opacity: 0.6;
+  animation: twinkle 6s ease-in-out infinite reverse;
+}
+@keyframes twinkle {
+  50% {
+    opacity: 0.15;
+  }
+}
+.petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+@keyframes fall {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  50% {
+    transform: translate(40px, 55vh) rotate(180deg);
+  }
+  100% {
+    transform: translate(-30px, 110vh) rotate(360deg);
+  }
+}
